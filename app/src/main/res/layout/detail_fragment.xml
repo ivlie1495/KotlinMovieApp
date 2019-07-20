@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.detail.DetailFragment">
+
+    <ImageView
+            android:id="@+id/imageViewDetail"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:src="@color/colorPrimaryDark"/>
+
+    <TextView
+            android:id="@+id/textViewTitleDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/textViewReleaseDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Release"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/textViewVote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vote Agerage"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+</LinearLayout>
