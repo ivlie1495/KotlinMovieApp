@@ -12,10 +12,10 @@ import retrofit2.Response
 
 class MainViewModel : ViewModel() {
 
-    fun getMovieList(): LiveData<List<Movie>>? {
-        val call = ApiConfig.getService().getMovieList()
-        val moviesLiveData: MutableLiveData<List<Movie>> = MutableLiveData()
+    private val call = ApiConfig.getService().getMovieList()
+    val moviesLiveData: MutableLiveData<List<Movie>> = MutableLiveData()
 
+    fun getMovieList(): LiveData<List<Movie>>? {
         call.enqueue(object : Callback<MovieResponse>{
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
 
