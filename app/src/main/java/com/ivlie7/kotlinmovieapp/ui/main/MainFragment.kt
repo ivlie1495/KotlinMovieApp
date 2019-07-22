@@ -31,7 +31,7 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
-        viewModel.getMovieList()?.observe(this, Observer {
+        viewModel.getMovieList().observe(this, Observer {
             movies ->
             movieAdapter = MovieAdapter(view?.context!!, movies) {
                 startActivity(intentFor<DetailActivity>("movie" to it).singleTop())
