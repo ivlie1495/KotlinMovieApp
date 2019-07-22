@@ -1,6 +1,7 @@
 package com.ivlie7.kotlinmovieapp.injection
 
 import com.ivlie7.kotlinmovieapp.config.ApiConfig
+import com.ivlie7.kotlinmovieapp.ui.detail.DetailViewModel
 import com.ivlie7.kotlinmovieapp.ui.main.MainViewModel
 import dagger.Component
 import javax.inject.Singleton
@@ -10,6 +11,7 @@ import javax.inject.Singleton
 interface ViewModelInjector {
 
     fun inject(mainViewModel: MainViewModel)
+    fun inject(detailViewModel: DetailViewModel)
 
     @Component.Builder
     interface Builder {

@@ -1,7 +1,7 @@
 package com.ivlie7.kotlinmovieapp.ui.detail
 
-import android.arch.lifecycle.ViewModel
+import com.ivlie7.kotlinmovieapp.base.BaseViewModel
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel : BaseViewModel() {
     // TODO: Implement the ViewModel
 }

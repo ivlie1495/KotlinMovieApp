@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import com.ivlie7.kotlinmovieapp.config.ApiConfig
 import com.ivlie7.kotlinmovieapp.injection.DaggerViewModelInjector
 import com.ivlie7.kotlinmovieapp.injection.ViewModelInjector
+import com.ivlie7.kotlinmovieapp.ui.detail.DetailViewModel
 import com.ivlie7.kotlinmovieapp.ui.main.MainViewModel
 
 abstract class BaseViewModel : ViewModel() {
@@ -19,6 +20,7 @@ abstract class BaseViewModel : ViewModel() {
     private fun inject() {
         when (this) {
             is MainViewModel -> injector.inject(this)
+            is DetailViewModel -> injector.inject(this)
         }
     }
 }
