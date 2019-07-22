@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.ivlie7.kotlinmovieapp.R
-import com.ivlie7.kotlinmovieapp.constant.ApiConstants
+import com.ivlie7.kotlinmovieapp.constant.API_POSTER
 import com.ivlie7.kotlinmovieapp.model.Movie
 import kotlinx.android.synthetic.main.detail_fragment.*
 
@@ -35,7 +35,7 @@ class DetailFragment : Fragment() {
     private fun setData() {
         movie = activity!!.intent.getParcelableExtra("movie")
 
-        Glide.with(view!!.context).load(ApiConstants.API_POSTER + movie.posterPath).into(imageViewDetail)
+        Glide.with(view!!.context).load(API_POSTER + movie.posterPath).into(imageViewDetail)
         textViewTitleDetail.text = movie.title
         textViewReleaseDetail.text = movie.releaseDate
         textViewVote.text = movie.voteAverage.toString()

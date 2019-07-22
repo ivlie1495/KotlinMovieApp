@@ -1,31 +1,26 @@
 package com.ivlie7.kotlinmovieapp.ui.main
 
+import android.annotation.SuppressLint
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import com.ivlie7.kotlinmovieapp.base.BaseViewModel
 import com.ivlie7.kotlinmovieapp.config.ApiConfig
 import com.ivlie7.kotlinmovieapp.model.Movie
-import com.ivlie7.kotlinmovieapp.model.MovieResponse
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
-class MainViewModel : ViewModel() {
+class MainViewModel : BaseViewModel() {
 
     private val call = ApiConfig.getService().getMovieList()
-    val moviesLiveData: MutableLiveData<List<Movie>> = MutableLiveData()
+    var moviesLiveData: MutableLiveData<List<Movie>> = MutableLiveData()
 
+    @SuppressLint("CheckResult")
     fun getMovieList(): LiveData<List<Movie>>? {
-        call.enqueue(object : Callback<MovieResponse>{
-            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-
+        call.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                moviesLiveData.value = it.movies
             }
-
-            override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                val movies:List<Movie>? = response.body()?.movies
-                moviesLiveData.value = movies
-            }
-        })
         return moviesLiveData
     }
 }
